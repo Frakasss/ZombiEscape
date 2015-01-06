@@ -329,7 +329,7 @@ void loop(){
     if(damage==1){gameOver();} 
       
     if(xposMeInTheWorld+16 > worldSize){
-      if(gameLevel==3){victory();}
+      if(gameLevel>3){victory();}
       else{initGame();}
     }  
 
