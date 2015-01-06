@@ -585,10 +585,10 @@ void displayZombi(){
       worldZombi[1][0] = 2;
       worldZombi[1][4] = 1;      
       worldZombi[2][0] = 3;
-      worldZombi[2][2] = xposWorld-25;
+      worldZombi[2][2] = ((stage-1)*120)-25;
       worldZombi[2][4] = 18;
       worldZombi[nbOfZombi-1][0] = 3;
-      worldZombi[nbOfZombi-1][2] = xposWorld+88+25;
+      worldZombi[nbOfZombi-1][2] = ((stage-1)*120)+88+25;
       worldZombi[nbOfZombi-1][4] = 18;
       worldZombi[nbOfZombi-2][0] = 2;
       worldZombi[nbOfZombi-2][4] = 1;   
