@@ -255,7 +255,7 @@ void loop(){
       if(gameLevel==1){gb.display.drawBitmap(0,0,Lvl1);}
       if(gameLevel==2){gb.display.drawBitmap(0,0,Lvl2);}
       if(gameLevel==3){gb.display.drawBitmap(0,0,Lvl3);}
-      if(gb.buttons.pressed(BTN_B)){startGame=0;}
+      if(gb.buttons.pressed(BTN_A)){startGame=0;}
     }else{
 
           
@@ -585,10 +585,10 @@ void displayZombi(){
       worldZombi[1][0] = 2;
       worldZombi[1][4] = 1;      
       worldZombi[2][0] = 3;
-      worldZombi[2][2] = ((stage-1)*120)-25;
+      worldZombi[2][2] = ((stage-1)*120)-35;
       worldZombi[2][4] = 18;
       worldZombi[nbOfZombi-1][0] = 3;
-      worldZombi[nbOfZombi-1][2] = ((stage-1)*120)+88+25;
+      worldZombi[nbOfZombi-1][2] = ((stage-1)*120)+88+35;
       worldZombi[nbOfZombi-1][4] = 18;
       worldZombi[nbOfZombi-2][0] = 2;
       worldZombi[nbOfZombi-2][4] = 1;   
