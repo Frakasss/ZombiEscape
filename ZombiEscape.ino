@@ -269,18 +269,19 @@ void loop() {
     if (startGame == 1) {
       if (gameLevel == 1) {
         gb.display.drawBitmap(0, 0, Lvl1);
-      }
-      if (gameLevel == 2) {
+
+      } else if (gameLevel == 2) {
         gb.display.drawBitmap(0, 0, Lvl2);
-      }
-      if (gameLevel == 3) {
+
+      } else if (gameLevel == 3) {
         gb.display.drawBitmap(0, 0, Lvl3);
+
       }
       if (gb.buttons.pressed(BTN_A)) {
         startGame = 0;
       }
     } else {
-
+      // --> 0 == startGame
 
       if (gb.buttons.pressed(BTN_C)) {
         goTitleScreen();
