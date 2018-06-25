@@ -376,7 +376,7 @@ void loop() {
       if (tmpStartStage < startStage) {
         gb.display.cursorX = 30;
         gb.display.cursorY = 38;
-        gb.display.println("Go =>");
+        gb.display.println(F("Go =>"));
       }
 
 
@@ -386,6 +386,7 @@ void loop() {
       }
       displayLevel();
       displayAmmo(ammo);
+      displayHealth(damage);
       drawMe();
     }
   }
@@ -465,13 +466,52 @@ void displayAmmo(int ammo) {
   if (ammo == 0)  {
     gb.display.cursorX = 57;
     gb.display.cursorY = 42;
-    gb.display.print("Reload!");
+    gb.display.print(F("Reload!"));
   }
   else {
+    // Draw the bullet icon:
+    gb.display.drawPixel(64, 42); // Upper left corner og the icon
+    gb.display.drawPixel(64, 43); // Pixel per pixel going math. positive direction.
+    gb.display.drawPixel(65, 43);
+    gb.display.drawPixel(64, 44);
+    gb.display.drawPixel(65, 45);
+    gb.display.drawPixel(64, 45);
+    gb.display.drawPixel(64, 46);
+    gb.display.drawPixel(66, 46);
+    gb.display.drawPixel(67, 46);
+    gb.display.drawPixel(68, 46);
+    gb.display.drawPixel(69, 45);
+    gb.display.drawPixel(70, 44);
+    gb.display.drawPixel(69, 43);
+    gb.display.drawPixel(68, 42);
+    gb.display.drawPixel(67, 42);
+    gb.display.drawPixel(66, 42);
+    
     for (int i = 0; i < ammo; i++) {
-      gb.display.drawPixel((i * 2) + 70, 42);
-      gb.display.drawPixel((i * 2) + 70, 43);
+      gb.display.drawPixel((i * 2) + 72, 44);
+      gb.display.drawPixel((i * 2) + 72, 45);
     }
+  }
+}
+
+//###############################################
+void displayHealth(int health) {
+  static uint8_t step_health = 10;
+  // Draw the heart icon:
+  gb.display.drawPixel(1, 43);
+  gb.display.drawPixel(1, 44);
+  gb.display.drawPixel(2, 45);
+  gb.display.drawPixel(3, 46);
+  gb.display.drawPixel(4, 45);
+  gb.display.drawPixel(5, 44);
+  gb.display.drawPixel(5, 43);
+  gb.display.drawPixel(4, 42);
+  gb.display.drawPixel(3, 43);
+  gb.display.drawPixel(2, 42);
+
+  for (int i = 0; i < (kPlayerContraintMaxHealth - health); i += step_health) {
+    gb.display.drawPixel((i / step_health * 2) + 8, 44);
+    gb.display.drawPixel((i / step_health * 2) + 8, 45);
   }
 }
 
@@ -479,9 +519,9 @@ void displayAmmo(int ammo) {
 void displayLevel() {
   gb.display.cursorX = 0;
   gb.display.cursorY = 0;
-  gb.display.print("Lvl");
+  gb.display.print(F("Lvl"));
   gb.display.print(gameLevel);
-  gb.display.print("-");
+  gb.display.print(F("-"));
   gb.display.print(stage);
 }
 
